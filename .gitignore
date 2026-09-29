@@ -1,2 +1,20 @@
+# Secrets
+.env
+.streamlit/secrets.toml
+
+# Model artifacts
+backend/artifacts/
+*.joblib
+
+# Dataset
 dataset/
+
+# Local model export notebook
+week 3 and 4 task for model exports.ipynb
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
 .ipynb_checkpoints/
