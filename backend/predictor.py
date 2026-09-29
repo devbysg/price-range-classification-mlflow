@@ -5,6 +5,7 @@ import pandas as pd
 import streamlit as st
 import dagshub
 
+from dotenv import load_dotenv
 from joblib import load
 
 
@@ -12,10 +13,33 @@ from joblib import load
 # Model configuration
 # ============================================================
 
-DAGSHUB_REPO = "/price-range-classification-mlflow"
+load_dotenv(
+    os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        ".env"
+    )
+)
 
-# File inside DagsHub Storage
-REMOTE_MODEL_PATH = "models/model_data.joblib"
+DAGSHUB_REPO = st.secrets.get(
+    "DAGSHUB_REPO",
+    os.getenv(
+        "DAGSHUB_REPO",
+        "myself_sg/price-range-classification-mlflow"
+    )
+)
+
+REMOTE_MODEL_PATH = st.secrets.get(
+    "REMOTE_MODEL_PATH",
+    os.getenv(
+        "REMOTE_MODEL_PATH",
+        "models/model_data.joblib"
+    )
+)
+
+DAGSHUB_USER_TOKEN = st.secrets.get(
+    "DAGSHUB_USER_TOKEN",
+    os.getenv("DAGSHUB_USER_TOKEN")
+)
 
 # Current file location
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
