@@ -1,8 +1,9 @@
 streamlit
+dagshub==0.7.2
+boto3
+joblib
+python-dotenv==1.2.3
 pandas==3.0.6
 numpy==2.5.3
 scikit-learn==1.9.1
-joblib
 xgboost==3.4.1
-dagshub==0.7.2
-boto3
